@@ -10,11 +10,13 @@ help: ## Print this help with list of available commands/targets and their purpo
 
 .PHONY: up
 up: ##Build environment
-	@docker-compose up -d && docker-compose exec -t php composer install
+	docker-compose up -d
+	docker exec slim-ddd-skeleton-php composer install
+
 
 .PHONY: down
 down: ##Close environment
-	@docker-compose down
+	docker-compose down
 
 #
 #--------------------------------------------------------------------------
@@ -24,8 +26,8 @@ down: ##Close environment
 
 .PHONY: tests
 tests: ##Execute tests
-	@docker-compose exec php vendor/bin/phpunit tests
+	docker-compose exec php vendor/bin/phpunit tests
 
 .PHONY: enter
 ssh: ##Ssh to container
-	@docker-compose exec php sh
+	docker-compose exec php sh
