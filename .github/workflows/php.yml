@@ -18,8 +18,8 @@ jobs:
 
       - name: Install Composer packages
         run: |
-          composer install
+          make up
 
       - name: Tests
         run: |
-          php vendor/bin/phpunit tests
+          make tests
