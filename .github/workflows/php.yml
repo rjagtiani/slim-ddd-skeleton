@@ -1,0 +1,25 @@
+name: PHP CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      COMPOSER_NO_DEV: 1
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: "shivammathur/setup-php@v2"
+        with:
+          php-version: 8.1
+          tools: composer
+
+      - name: Install Composer packages
+        run: |
+          composer install
+
+      - name: Tests
+        run: |
+          php vendor/bin/phpunit tests
