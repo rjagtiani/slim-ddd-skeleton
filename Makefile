@@ -26,7 +26,7 @@ down: ##Close environment
 
 .PHONY: tests
 tests: ##Execute tests
-	docker-compose exec php vendor/bin/phpunit tests
+	docker exec slim-ddd-skeleton-php vendor/bin/phpunit tests
 
 .PHONY: enter
 ssh: ##Ssh to container
