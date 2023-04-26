@@ -10,7 +10,7 @@ help: ## Print this help with list of available commands/targets and their purpo
 
 .PHONY: up
 up: ##Build environment
-	@docker-compose up -d && docker-compose exec php composer install
+	@docker-compose up -d && docker-compose exec -t php composer install
 
 .PHONY: down
 down: ##Close environment
